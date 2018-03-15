@@ -1,31 +1,17 @@
 BASEDIR = $(shell pwd)
 REBAR = rebar3
 APPNAME = erl_counter_bench
-RELPATH = _build/default/rel/$(APPNAME)
+BIN = _build/default/bin
+LIB = _build/default/lib
+ONEUP_PRIV  = $(LIB)/oneup/priv
 DEBUG=1
 
-compile:
-	$(REBAR) compile
+all:
+	$(REBAR) escriptize
+	export ONEUP_PRIV_PATH="`pwd`/$(ONEUP_PRIV)"
 
-release:
-	$(REBAR) release
-
-recompile:
-	find . -name ebin | xargs rm -rf
-	$(REBAR) compile
-
-eunit:
-	$(REBAR) eunit --file="$(BASEDIR)/test/oneup_metrics_test.erl"
-
-common-test:
-	ct_run -dir $(BASEDIR)/ct -logdir $(BASEDIR)/ct/logs \
-	-pa $(BASEDIR)/_build/default/lib/*/ebin -erl_args \
-	-config $(BASEDIR)/templates/sys.config
-
-test: recompile eunit common-test
-
-console: release
-	cd $(RELPATH) && ./bin/$(APPNAME) console
+run:
+	$(BIN)/$(APPNAME)
 
 clean:
 	$(REBAR) clean
