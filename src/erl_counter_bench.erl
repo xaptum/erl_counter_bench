@@ -5,12 +5,13 @@
 
 -define(DEFAULT_ETS_OPTS, [named_table, set, public, {write_concurrency, true}, {read_concurrency, true}]).
 
--define(ITERATIONS, [1000]).
+-define(ITERATIONS, [100]).
 -define(NUM_PROCS, [10, 100, 1000, 10000, 100000, 1000000]).
 
 -define(MICROS_IN_SEC, 1000000).
 
 -define(TEST_CONFIG, [
+    {bench_foil, []},
     {bench_ets, [{tab_opts, ?DEFAULT_ETS_OPTS}]},
     {bench_core_level_ets, [{tab_opts, ?DEFAULT_ETS_OPTS}]},
     {bench_oneup_counter, []},
