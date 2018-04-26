@@ -6,7 +6,7 @@
 %%% @end
 %%% Created : 26. Apr 2018 10:39 AM
 %%%-------------------------------------------------------------------
--module(bench_foil_list).
+-module(bench_foil_simple_list).
 -author("iguberman").
 
 -behavior(erl_counter_bench).

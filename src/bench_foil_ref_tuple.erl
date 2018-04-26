@@ -6,7 +6,7 @@
 %%% @end
 %%% Created : 26. Apr 2018 10:27 AM
 %%%-------------------------------------------------------------------
--module(bench_foil_tuple).
+-module(bench_foil_ref_tuple).
 -author("iguberman").
 
 -behavior(erl_counter_bench).
