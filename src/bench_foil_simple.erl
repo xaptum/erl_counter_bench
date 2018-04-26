@@ -1,13 +1,14 @@
 %%%-------------------------------------------------------------------
-%%% @author zhaoxingu
+%%% @author iguberman
 %%% @copyright (C) 2018, Xaptum, Inc.
 %%% @doc
 %%%
 %%% @end
-%%% Created : 27. Mar 2018 1:36 PM
+%%% Created : 26. Apr 2018 10:49 AM
 %%%-------------------------------------------------------------------
--module(bench_foil).
--author("zhaoxingu").
+-module(bench_foil_simple).
+-author("iguberman").
+
 -behavior(erl_counter_bench).
 
 %% API
@@ -16,12 +17,9 @@
 bench_setup([])->
   foil_app:start(),
   foil:new(table),
-  Udp_count = oneup:new_counter(),
-  Tcp_count = oneup:new_counter(),
-  foil:insert(table, tcp, Tcp_count),
-  foil:insert(table, udp, Udp_count),
+  foil:insert(table, moo, "MOOOO"),
   foil:load(table).
 
 bench_iteration(_)->
-  {ok, Udp_c} = foil:lookup(table, udp),
-  oneup:inc(Udp_c).
+  {ok, "MOOOO"} = foil:lookup(table, moo).
+
