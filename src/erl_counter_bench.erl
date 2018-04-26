@@ -13,10 +13,7 @@
 -define(TEST_CONFIG, [
     {bench_foil_simple, []},
     {bench_foil_simple_tuple, []},
-    {bench_foil_ref, []},
-    {bench_foil_ref_list, []},
-    {bench_foil_list, []},
-    {bench_foil_tuple, []}
+    {bench_foil_list, []}
 %%    {bench_ets, [{tab_opts, ?DEFAULT_ETS_OPTS}]},
 %%    {bench_core_level_ets, [{tab_opts, ?DEFAULT_ETS_OPTS}]},
 %%    {bench_oneup_counter, []},
