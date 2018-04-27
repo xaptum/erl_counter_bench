@@ -21,5 +21,5 @@ bench_setup([])->
   foil:load(table).
 
 bench_iteration(_)->
-  {ok, "MOOOO"} = foil:lookup(table, moo).
+  {ok, "MOOOO"} = table_foil:lookup(moo).
 

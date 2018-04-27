@@ -21,5 +21,5 @@ bench_setup([])->
   foil:load(table).
 
 bench_iteration(_)->
-  {ok, [Counter1, Counter2, Counter3]} = foil:lookup(table, histogram).
+  {ok, [Counter1, Counter2, Counter3]} = table_foil:lookup(histogram).
 

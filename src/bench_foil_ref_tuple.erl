@@ -41,5 +41,5 @@ bench_setup([])->
   foil:load(table).
 
 bench_iteration(_)->
-  {ok, {monster, Counter, _InnerTuple}} = foil:lookup(table, counter_tuple).
+  {ok, {monster, Counter, _InnerTuple}} = table_foil:lookup(counter_tuple).
 %%  oneup:inc(Counter).
