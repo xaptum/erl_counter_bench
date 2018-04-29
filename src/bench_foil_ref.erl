@@ -21,5 +21,4 @@ bench_setup([])->
   foil:load(table).
 
 bench_iteration(_)->
-  {ok, Counter} = table_foil:lookup(counter),
-  oneup:inc(Counter).
+  {ok, _Counter} = table_foil:lookup(counter).

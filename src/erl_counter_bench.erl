@@ -4,9 +4,10 @@
 -export([main/1, delete_ets_if_exists/1, do_iterate/2, bench/4, iterate/3]).
 
 -define(DEFAULT_ETS_OPTS, [named_table, set, public, {write_concurrency, true}, {read_concurrency, true}]).
+-define(READ_ETS_OPTS, [named_table, set, public, {read_concurrency, true}]).
 
 -define(ITERATIONS, [100]).
--define(NUM_PROCS, [10, 100, 1000, 10000, 100000]).
+-define(NUM_PROCS, [10, 100, 1000, 10000, 100000, 1000000]).
 
 -define(MICROS_IN_SEC, 1000000).
 
@@ -17,10 +18,11 @@
     {bench_foil_ref, []},
     {bench_foil_ref_list, []},
     {bench_foil_ref_tuple, []},
-    {bench_ets, [{tab_opts, ?DEFAULT_ETS_OPTS}]},
-    {bench_core_level_ets, [{tab_opts, ?DEFAULT_ETS_OPTS}]}
-%%    {bench_oneup_counter, []},
-%%    {bench_core_level_oneup_counter, []}
+    {bench_ets_ref, [{tab_opts, ?READ_ETS_OPTS}]},
+    {bench_core_level_ets_ref, [{tab_opts, ?READ_ETS_OPTS}]},
+    {bench_core_level_ets, [{tab_opts, ?DEFAULT_ETS_OPTS}]},
+    {bench_oneup_counter, []},
+    {bench_core_level_oneup_counter, []}
 ]).
 
 -callback bench_setup(PropList :: list()) -> Response :: atom().
